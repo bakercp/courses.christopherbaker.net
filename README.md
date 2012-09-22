@@ -15,3 +15,6 @@ How To:
 3. Press the button and it should launch the Git App and clone the repository.  You'll find a newly cloned repository including all of the files from the _courses.christopherbaker.net_ project.  You can stay up to date with the latest changes and additions by synchronizing the repo using the Git GUI.  If you like, you can also receive updates whenever there are changes by subscribing to the repository.
 
 4.  Finally, if you want to know more about Git and how it works, you can take a crash course [here](http://git-scm.com/book/en/Getting-Started-Git-Basics).
+
+5. (optional) If you like, feel free to fork this repository and make corrections or updates.  Then issue a pull-request and I'll incporate your changes.
+
