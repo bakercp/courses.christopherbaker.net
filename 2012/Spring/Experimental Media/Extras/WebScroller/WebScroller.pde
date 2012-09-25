@@ -9,7 +9,7 @@ int currentPageLinkIndex = 0;
 int currentYPosition = 0;
 
 void setup() {
-  size(1024, 768, OPENGL);
+  size(1024, 768); // could also use size(1024, 768, OPENGL); for better performance
   frameRate(60);
 
  // add images and their links here
@@ -29,19 +29,27 @@ void draw() {
   // get the current page
   PageLink currentPageLink = pageLinks.get(currentPageLinkIndex);
 
+  // draw the current image (it accesses the related image via .img).
+  // img is the variable name (see the PageLink tab above).
   image(currentPageLink.img, 0, currentYPosition);
 
-  println(currentYPosition + currentImage.height);
-
-  if ((currentYPosition + currentImage.height) < height) {
+  // if the current position takes the image off of the page,
+  // then we reset the current Y position and get a new current image.
+  // we use a modulo operator to help us choose a valid index into our
+  // collection (i.e. our ArrayList full of PageLink objects).
+  if ((currentYPosition + currentPageLink.img.height) < height) {
     currentYPosition = height;
     currentPageLinkIndex = (currentPageLinkIndex + 1) % pageLinks.size();
   }
 }
 
 void mousePressed() {
+  // when a mouse is pressed, we look and see what PageLink is 
+  // currently active onscreen (by lookin gat the current index)
+  // and then we get it and open its url.
   PageLink currentPageLink = pageLinks.get(currentPageLinkIndex);
-  String url = currentPageLink.url; 
-  open(url);
+  // again, we are using the .url syntax to access the object's
+  // member variable called "url" -- see the PageLink tab above!
+  open(currentPageLink.url);
 }
 
