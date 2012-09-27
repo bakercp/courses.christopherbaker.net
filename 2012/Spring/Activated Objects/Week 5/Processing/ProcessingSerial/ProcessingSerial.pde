@@ -11,7 +11,7 @@ void setup()
 }
 
 void draw() {
-   if ( myPort.available() > 0) {  // If data is available,
+   while ( myPort.available() > 0) {  // If data is available,
     val = myPort.read();         // read it and store it in val
     // println(val);
    }
