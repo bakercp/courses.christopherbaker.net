@@ -1,10 +1,10 @@
 int buttonPinArray[] = {
   8, 9, 10}; // the pin addresses for our buttons
 
-///
 byte buttonStateBits; // we are using this as a binary number
 
-int count = 0;
+int buttonIndex = 0;
+const int nButtons = 3;
 
 void setup() {
   Serial.begin(9600); // start the serial mode so we can debug on the computer
@@ -12,18 +12,17 @@ void setup() {
   buttonStateBits = 0; // clear out all bits
 
   // set up our button pins as input  
-  for(count=0; count<3;count++) {
-    pinMode(buttonPinArray[count], INPUT);
-  } 
+  for(buttonIndex=0; buttonIndex<nButtons;buttonIndex++) {
+    pinMode(buttonPinArray[buttonIndex], INPUT);
+  }  
 }
 
 void loop() {
-  
   buttonStateBits = 0; // clear out all bits
   
-  for(count=0; count<3;count++) {
-    if(digitalRead(buttonPinArray[count]) == HIGH) {
-      bitSet(buttonStateBits,count); // set the button index == 1
+  for(buttonIndex=0; buttonIndex<nButtons;buttonIndex++) {
+    if(digitalRead(buttonPinArray[buttonIndex]) == HIGH) {
+      bitSet(buttonStateBits,buttonIndex); // set the button index == 1
     }
   }
 
