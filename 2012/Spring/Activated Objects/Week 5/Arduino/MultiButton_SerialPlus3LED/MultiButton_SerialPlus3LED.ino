@@ -31,12 +31,9 @@ void loop() {
     buttonStateArray[count] = digitalRead(buttonPinArray[count]);
   }
 
-  // write the bytes to the serial output
   for(count=0; count<3;count++) {
     digitalWrite(ledPinArray[count],buttonStateArray[count]);
   }
-
-  //  Serial.println();
 
   delay(10);
 }
