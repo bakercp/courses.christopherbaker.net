@@ -13,7 +13,7 @@ void setup() {
  pinMode(LED_PIN_1,OUTPUT);
 
  pinMode(BUTTON_PIN_0,INPUT);
- pinMode(BUTTON_PIN_0,INPUT);
+ pinMode(BUTTON_PIN_1,INPUT);
 }
 
 void loop() {
