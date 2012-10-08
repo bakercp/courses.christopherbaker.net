@@ -1,11 +1,11 @@
 // a collection of variables that
 // represent a ball.
 
-int numBalls = 600; // the number of balls I'm going to make
+int numBalls = 60; // the number of balls I'm going to make
 ArrayList<Ball> myBallArray = new ArrayList<Ball>();
 
 void setup() {
-  size(800,600,OPENG);
+  size(800,600,OPENGL);
 
   for (int i = 0; i < numBalls; i++) {
     int xPos = int(random(0, width));

@@ -48,10 +48,14 @@ class Ball {
   }
 
   void draw() {
-    ellipseMode(CENTER);
-    fill(fillColor);
-    stroke(strokeColor);
-    ellipse(xPosition, yPosition, radius, radius);
+    //ellipseMode(CENTER);
+    //fill(fillColor);
+    //stroke(strokeColor);
+    //ellipse(xPosition, yPosition, radius, radius);
+    pushMatrix();
+    translate(xPosition,yPosition);
+    sphere(radius);
+    popMatrix();
   }
 }
 
