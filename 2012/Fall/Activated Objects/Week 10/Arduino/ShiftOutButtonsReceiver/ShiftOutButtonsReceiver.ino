@@ -15,7 +15,6 @@ void setup() {
 
   // begin serial connection
   Serial.begin(9600);
-
 }
 
 void loop() {
@@ -34,6 +33,5 @@ void loop() {
 
   // just set a little delay
   delay(10);
-
 }
 

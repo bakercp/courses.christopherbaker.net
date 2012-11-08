@@ -3,8 +3,8 @@ ParticleSystem ps;
 ArrayList<PImage> myImages = new ArrayList<PImage>();
 
 void setup() {
-  size(600, 600);
-  frameRate(30);
+  size(displayWidth, displayHeight);
+  frameRate(60);
 
   loadImages("trout/");
 
@@ -15,11 +15,11 @@ void setup() {
   ps.gravity = new PVector(0.0f, 0.5f, 0.0f);
 
   // this is the range of values that the origin can take
-  ps.initialPositionRange.setMax(new PVector(width/2+40, height/2.0f, 0));
-  ps.initialPositionRange.setMin(new PVector(width/2-40, height/2.0f, 0));
+  ps.initialPositionRange.setMax(new PVector(width/2+displayWidth/2, height/2.0f, 0));
+  ps.initialPositionRange.setMin(new PVector(width/2-displayWidth/2, height/2.0f, 0));
 
   // the maximum number of particles allowed on the stage at any one time
-  ps.maxNumParticles = 500;
+  ps.maxNumParticles = 1000;
 
   // this is the range of particles that can be emitted per update
   ps.numParticlesEmittedPerUpdateRange.setMin(5);
@@ -42,10 +42,13 @@ void draw() {
   //addGreenParticle();
   //addNormalParticle();
   addTroutParticle();
+  addTroutParticle();
+  addTroutParticle();
 }
 
 void addTroutParticle() {
-  PVector initialPosition = new PVector(width/2, height/2, 0);
+  PVector initialPosition = ps.initialPositionRange.getRandom();
+  
   PVector initialVelocity = ps.initialVelocityRange.getRandom();
 
   int troutIndex = int(random(0,myImages.size()));

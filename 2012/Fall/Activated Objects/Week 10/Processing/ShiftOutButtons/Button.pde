@@ -14,14 +14,6 @@ class Button {
   }
 
   void draw() {
-
-    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-      value = true;
-    } 
-    else {
-      value = false;
-    }    
-
     stroke(255);
     if (value == true) {
       fill(255, 127);
@@ -31,6 +23,12 @@ class Button {
     }
 
     rect(x, y, w, h);
+  }
+
+  void mousePressed() {
+    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+      value = !value;
+    }
   }
 }
 
